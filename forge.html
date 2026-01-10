@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blaene Forge - El yapımı dövme metal ürünleri ile endüstriyel estetik.">
+    <title>Forge | Blaene</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .catalog {
+            --accent-color: var(--color-forge);
+        }
+
+        .product-card:hover {
+            border-color: var(--color-forge);
+        }
+
+        .product-card__badge {
+            background: var(--color-forge);
+        }
+
+        .filter__option.active .filter__checkbox {
+            background: var(--color-forge);
+            border-color: var(--color-forge);
+        }
+
+        .filter__slider::-webkit-slider-thumb {
+            background: var(--color-forge);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <a href="index.html" class="navbar__logo">BLAENE<span>®</span></a>
+        <ul class="navbar__menu">
+            <li><a href="index.html" class="navbar__link">Ana Sayfa</a></li>
+            <li><a href="interior.html" class="navbar__link">Interior</a></li>
+            <li><a href="forge.html" class="navbar__link" style="opacity: 1; color: var(--color-forge);">Forge</a></li>
+            <li><a href="industry.html" class="navbar__link">Industry</a></li>
+            <li><a href="index.html#contact" class="navbar__link">İletişim</a></li>
+        </ul>
+        <button class="navbar__toggle" id="navToggle" aria-label="Menüyü aç">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Catalog Section -->
+    <section class="catalog">
+        <div class="catalog__container">
+            <!-- Sidebar Filters -->
+            <aside class="catalog__sidebar">
+                <div class="filter">
+                    <h3 class="filter__title">Kategori</h3>
+                    <div class="filter__options">
+                        <label class="filter__option active" data-filter="bahce">
+                            <span class="filter__checkbox"></span>
+                            <span class="filter__label">Bahçe & Dış Mekan</span>
+                        </label>
+                        <label class="filter__option" data-filter="ocak">
+                            <span class="filter__checkbox"></span>
+                            <span class="filter__label">Şömine & Ocak</span>
+                        </label>
+                        <label class="filter__option" data-filter="kapi">
+                            <span class="filter__checkbox"></span>
+                            <span class="filter__label">Kapı & Parmaklık</span>
+                        </label>
+                        <label class="filter__option" data-filter="masa">
+                            <span class="filter__checkbox"></span>
+                            <span class="filter__label">Masa & Sandalye</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter">
+                    <h3 class="filter__title">İşçilik</h3>
+                    <div class="filter__options">
+                        <label class="filter__option" data-filter="dovme">
+                            <span class="filter__checkbox"></span>
+                            <span class="filter__label">El Dövmesi</span>
+                        </label>
+                        <label class="filter__option" data-filter="kaynak">
+                            <span class="filter__checkbox"></span>
+                            <span class="filter__label">Kaynak İşçiliği</span>
+                        </label>
+                        <label class="filter__option" data-filter="dokum">
+                            <span class="filter__checkbox"></span>
+                            <span class="filter__label">Döküm</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter">
+                    <h3 class="filter__title">Fiyat Aralığı</h3>
+                    <div class="filter__range">
+                        <div class="filter__range-values">
+                            <span class="filter__range-min">₺0</span>
+                            <span class="filter__range-max">₺50.000</span>
+                        </div>
+                        <input type="range" class="filter__slider" min="0" max="50000" value="50000" step="1000">
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <main class="catalog__main">
+                <div class="catalog__header" style="margin-bottom: 2rem;">
+                    <h1 style="font-family: var(--font-display); font-size: 2rem; font-weight: 700;">
+                        <span style="opacity: 0.5;">BLAENE</span> <span style="color: var(--color-forge);">FORGE</span>
+                    </h1>
+                    <p style="color: var(--color-gray-light); margin-top: 0.5rem;">8 ürün bulundu</p>
+                </div>
+
+                <div class="catalog__grid">
+                    <!-- Product 1 -->
+                    <a href="product.html" class="product-card" data-price="12000" data-category="bahce">
+                        <div class="product-card__image">
+                            <div
+                                style="width: 100%; height: 100%; background: linear-gradient(135deg, #0d1f15, #1a2a20); display: flex; align-items: center; justify-content: center;">
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#00ff88"
+                                    stroke-width="1">
+                                    <path d="M15 70 L15 40 C15 25 25 15 40 15 C55 15 65 25 65 40 L65 70" />
+                                    <line x1="15" y1="50" x2="65" y2="50" />
+                                    <line x1="15" y1="60" x2="65" y2="60" />
+                                </svg>
+                            </div>
+                            <span class="product-card__badge">El Yapımı</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Bahçe & Dış Mekan</span>
+                            <h3 class="product-card__title">Dövme Demir Kemer</h3>
+                            <div class="product-card__price" style="color: var(--color-forge);">₺12.000</div>
+                        </div>
+                    </a>
+
+                    <!-- Product 2 -->
+                    <a href="product.html" class="product-card" data-price="8500" data-category="ocak">
+                        <div class="product-card__image">
+                            <div
+                                style="width: 100%; height: 100%; background: linear-gradient(135deg, #0d1f15, #1a2a20); display: flex; align-items: center; justify-content: center;">
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#00ff88"
+                                    stroke-width="1">
+                                    <rect x="15" y="30" width="50" height="35" rx="3" />
+                                    <path d="M25 50 Q30 35 35 50 Q40 35 45 50 Q50 35 55 50" />
+                                    <line x1="20" y1="25" x2="25" y2="30" />
+                                    <line x1="60" y1="25" x2="55" y2="30" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Şömine & Ocak</span>
+                            <h3 class="product-card__title">Şömine Paravan Seti</h3>
+                            <div class="product-card__price" style="color: var(--color-forge);">₺8.500</div>
+                        </div>
+                    </a>
+
+                    <!-- Product 3 -->
+                    <a href="product.html" class="product-card" data-price="25000" data-category="kapi">
+                        <div class="product-card__image">
+                            <div
+                                style="width: 100%; height: 100%; background: linear-gradient(135deg, #0d1f15, #1a2a20); display: flex; align-items: center; justify-content: center;">
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#00ff88"
+                                    stroke-width="1">
+                                    <rect x="20" y="10" width="40" height="60" rx="2" />
+                                    <circle cx="52" cy="40" r="3" />
+                                    <path d="M30 20 L30 60 M35 20 L35 60 M50 20 L50 60" />
+                                </svg>
+                            </div>
+                            <span class="product-card__badge">3D</span>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Kapı & Parmaklık</span>
+                            <h3 class="product-card__title">Dövme Demir Kapı</h3>
+                            <div class="product-card__price" style="color: var(--color-forge);">₺25.000</div>
+                        </div>
+                    </a>
+
+                    <!-- Product 4 -->
+                    <a href="product.html" class="product-card" data-price="6800" data-category="masa">
+                        <div class="product-card__image">
+                            <div
+                                style="width: 100%; height: 100%; background: linear-gradient(135deg, #0d1f15, #1a2a20); display: flex; align-items: center; justify-content: center;">
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#00ff88"
+                                    stroke-width="1">
+                                    <ellipse cx="40" cy="25" rx="25" ry="8" />
+                                    <path d="M15 25 L15 30 Q15 55 40 60 Q65 55 65 30 L65 25" />
+                                    <line x1="40" y1="60" x2="40" y2="70" />
+                                    <ellipse cx="40" cy="70" rx="10" ry="3" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Masa & Sandalye</span>
+                            <h3 class="product-card__title">Dövme Mangal Sehpası</h3>
+                            <div class="product-card__price" style="color: var(--color-forge);">₺6.800</div>
+                        </div>
+                    </a>
+
+                    <!-- Product 5 -->
+                    <a href="product.html" class="product-card" data-price="15000" data-category="bahce">
+                        <div class="product-card__image">
+                            <div
+                                style="width: 100%; height: 100%; background: linear-gradient(135deg, #0d1f15, #1a2a20); display: flex; align-items: center; justify-content: center;">
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#00ff88"
+                                    stroke-width="1">
+                                    <path d="M20 65 Q20 35 40 20 Q60 35 60 65" />
+                                    <line x1="20" y1="65" x2="60" y2="65" />
+                                    <circle cx="40" cy="45" r="8" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Bahçe & Dış Mekan</span>
+                            <h3 class="product-card__title">Bahçe Çardağı</h3>
+                            <div class="product-card__price" style="color: var(--color-forge);">₺15.000</div>
+                        </div>
+                    </a>
+
+                    <!-- Product 6 -->
+                    <a href="product.html" class="product-card" data-price="4200" data-category="ocak">
+                        <div class="product-card__image">
+                            <div
+                                style="width: 100%; height: 100%; background: linear-gradient(135deg, #0d1f15, #1a2a20); display: flex; align-items: center; justify-content: center;">
+                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#00ff88"
+                                    stroke-width="1">
+                                    <path d="M25 60 L20 70 M55 60 L60 70" />
+                                    <ellipse cx="40" cy="55" rx="20" ry="8" />
+                                    <path d="M30 40 Q35 30 40 40 Q45 30 50 40" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="product-card__content">
+                            <span class="product-card__category">Şömine & Ocak</span>
+                            <h3 class="product-card__title">Ateş Kovası</h3>
+                            <div class="product-card__price" style="color: var(--color-forge);">₺4.200</div>
+                        </div>
+                    </a>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__logo">BLAENE</div>
+            <div class="footer__copyright">© 2024 Blaene. Tüm hakları saklıdır.</div>
+            <div class="footer__social">
+                <a href="#" class="footer__social-link" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
