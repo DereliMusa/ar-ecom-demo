@@ -256,15 +256,28 @@
 
     <script src="script.js"></script>
     <script>
-        // AR Button Handler
-        document.getElementById('arButton')?.addEventListener('click', function () {
-            // Check for AR support
-            if ('xr' in navigator) {
-                alert('AR deneyimi başlatılıyor...\n\n(Demo modunda - Gerçek uygulamada model-viewer AR modu açılacaktır)');
-            } else {
-                alert('AR Deneyimi\n\nBu özellik mobil cihazlarda kullanılabilir.\niPhone: Safari tarayıcısı ile açın\nAndroid: Chrome tarayıcısı ile açın');
-            }
-        });
+        // Wait for model-viewer to be ready
+        const modelViewer = document.querySelector('#viewer-3d');
+        const arButton = document.getElementById('arButton');
+
+        if (modelViewer && arButton) {
+            // When AR button clicked, activate AR on model-viewer
+            arButton.addEventListener('click', async () => {
+                // Check if model-viewer supports AR
+                if (modelViewer.canActivateAR) {
+                    // Activate AR - this will open camera on mobile
+                    modelViewer.activateAR();
+                } else {
+                    // Show message if AR not supported
+                    alert('AR bu cihazda desteklenmiyor.\n\nAR için:\n• iPhone: Safari tarayıcı kullanın\n• Android: Chrome tarayıcı kullanın\n• HTTPS bağlantısı gerekli (localhost hariç)');
+                }
+            });
+
+            // Listen for AR status
+            modelViewer.addEventListener('ar-status', (event) => {
+                console.log('AR Status:', event.detail.status);
+            });
+        }
 
         // Thumbnail selection
         document.querySelectorAll('.product-viewer__thumb').forEach((thumb, index) => {
