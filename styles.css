@@ -5,6 +5,7 @@
 
 /* CSS Variables - Design Tokens */
 :root {
+  /* ... (Mevcut değişkenler aynı kalacak) ... */
   /* Base Colors */
   --color-black: #0a0a0a;
   --color-dark: #111111;
@@ -14,25 +15,25 @@
   --color-gray-light: #888888;
   --color-white: #ffffff;
   --color-off-white: #f5f5f5;
-  
+
   /* Brand Colors - Interior */
   --color-interior: #ffffff;
   --color-interior-accent: rgba(255, 255, 255, 0.1);
-  
+
   /* Brand Colors - Forge */
   --color-forge: #00ff88;
   --color-forge-dark: #00cc6a;
   --color-forge-accent: rgba(0, 255, 136, 0.1);
-  
+
   /* Brand Colors - Industry */
   --color-industry: #c0c0c0;
   --color-industry-light: #e0e0e0;
   --color-industry-accent: rgba(192, 192, 192, 0.1);
-  
+
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-display: 'Outfit', var(--font-primary);
-  
+
   /* Spacing */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -41,19 +42,19 @@
   --space-xl: 2rem;
   --space-2xl: 3rem;
   --space-3xl: 4rem;
-  
+
   /* Border Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
-  
+
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-normal: 300ms ease;
   --transition-slow: 500ms ease;
   --transition-slower: 800ms cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   /* Shadows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
@@ -67,7 +68,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 /* Reset & Base */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -283,8 +286,15 @@ ul {
 }
 
 @keyframes shimmer {
-  0%, 100% { transform: translateX(-100%); }
-  50% { transform: translateX(100%); }
+
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
 }
 
 /* Hero Panel Content */
@@ -427,13 +437,29 @@ ul {
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(10px); }
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
 }
 
 @keyframes scroll-dot {
-  0%, 100% { opacity: 1; top: 8px; }
-  50% { opacity: 0.3; top: 16px; }
+
+  0%,
+  100% {
+    opacity: 1;
+    top: 8px;
+  }
+
+  50% {
+    opacity: 0.3;
+    top: 16px;
+  }
 }
 
 /* ===================================
@@ -665,10 +691,10 @@ ul {
   transition: all var(--transition-fast);
 }
 
-.form__input:focus ~ .form__label,
-.form__input:not(:placeholder-shown) ~ .form__label,
-.form__textarea:focus ~ .form__label,
-.form__textarea:not(:placeholder-shown) ~ .form__label {
+.form__input:focus~.form__label,
+.form__input:not(:placeholder-shown)~.form__label,
+.form__textarea:focus~.form__label,
+.form__textarea:not(:placeholder-shown)~.form__label {
   top: 0;
   font-size: 0.75rem;
   background: var(--color-dark);
@@ -1056,6 +1082,13 @@ ul {
   overflow: hidden;
 }
 
+/* MODEL VIEWER CUSTOMIZATION */
+model-viewer {
+  width: 100%;
+  height: 100%;
+  --poster-color: transparent;
+}
+
 .product-viewer__3d-badge {
   position: absolute;
   top: var(--space-md);
@@ -1068,6 +1101,7 @@ ul {
   border-radius: var(--radius-md);
   font-size: 0.75rem;
   font-weight: 600;
+  z-index: 10;
 }
 
 .product-viewer__3d-badge svg {
@@ -1261,6 +1295,7 @@ ul {
    ADMIN PANEL
    =================================== */
 
+/* ... (Admin panel ve footer stilleri aynı kalacak) ... */
 .admin {
   display: flex;
   min-height: 100vh;
@@ -1338,7 +1373,6 @@ ul {
   font-weight: 700;
 }
 
-/* Admin Stats */
 .admin__stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1373,7 +1407,6 @@ ul {
   margin-top: var(--space-xs);
 }
 
-/* Admin Table */
 .admin__table-wrapper {
   background: var(--color-darker);
   border: 1px solid var(--color-gray-dark);
@@ -1462,50 +1495,46 @@ ul {
   color: var(--color-white);
 }
 
-/* ===================================
-   RESPONSIVE
-   =================================== */
-
 @media (max-width: 1024px) {
   .hero__title {
     font-size: 2rem;
   }
-  
+
   .about__content {
     grid-template-columns: 1fr;
   }
-  
+
   .contact__grid {
     grid-template-columns: 1fr;
   }
-  
+
   .catalog__container {
     grid-template-columns: 1fr;
   }
-  
+
   .catalog__sidebar {
     position: static;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-md);
   }
-  
+
   .product-detail__container {
     grid-template-columns: 1fr;
   }
-  
+
   .product-viewer {
     position: static;
   }
-  
+
   .admin__sidebar {
     display: none;
   }
-  
+
   .admin__content {
     margin-left: 0;
   }
-  
+
   .admin__stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1515,61 +1544,61 @@ ul {
   .navbar__menu {
     display: none;
   }
-  
+
   .navbar__toggle {
     display: flex;
   }
-  
+
   .hero {
     flex-direction: column;
   }
-  
+
   .hero__panel {
     flex: 1;
     min-height: 33.33vh;
   }
-  
+
   .hero__panel:hover {
     flex: 1;
   }
-  
+
   .hero__title {
     font-size: 1.5rem;
   }
-  
+
   .hero__description {
     display: none;
   }
-  
+
   .hero__cta {
     opacity: 1;
     transform: none;
     padding: var(--space-sm) var(--space-md);
     font-size: 0.625rem;
   }
-  
+
   .section {
     padding: var(--space-2xl) var(--space-lg);
   }
-  
+
   .section__title {
     font-size: 1.75rem;
   }
-  
+
   .footer__content {
     flex-direction: column;
     gap: var(--space-lg);
     text-align: center;
   }
-  
+
   .product-specs__list {
     grid-template-columns: 1fr;
   }
-  
+
   .admin__stats {
     grid-template-columns: 1fr;
   }
-  
+
   .admin__table-wrapper {
     overflow-x: auto;
   }
@@ -1580,28 +1609,28 @@ ul {
     --space-2xl: 2rem;
     --space-3xl: 2.5rem;
   }
-  
+
   .navbar {
     padding: var(--space-md) var(--space-lg);
   }
-  
+
   .navbar__logo {
     font-size: 1.25rem;
   }
-  
+
   .hero__icon {
     width: 40px;
     height: 40px;
   }
-  
+
   .hero__subtitle {
     font-size: 0.625rem;
   }
-  
+
   .hero__title {
     font-size: 1.25rem;
   }
-  
+
   .btn {
     padding: var(--space-sm) var(--space-lg);
     font-size: 0.75rem;

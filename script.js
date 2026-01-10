@@ -21,7 +21,7 @@ function initNavbar() {
 
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     // Add scrolled class for background
     if (currentScroll > 50) {
       navbar.classList.add('scrolled');
@@ -77,7 +77,7 @@ function initScrollAnimations() {
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
       if (target) {
@@ -111,7 +111,7 @@ function initFilters() {
   if (priceSlider) {
     const minValue = document.querySelector('.filter__range-min');
     const maxValue = document.querySelector('.filter__range-max');
-    
+
     priceSlider.addEventListener('input', (e) => {
       if (maxValue) {
         maxValue.textContent = `₺${parseInt(e.target.value).toLocaleString('tr-TR')}`;
@@ -136,9 +136,9 @@ function initFilters() {
     productCards.forEach(card => {
       const cardPrice = parseInt(card.dataset.price) || 0;
       const cardCategory = card.dataset.category || '';
-      
+
       let show = true;
-      
+
       // Check price
       if (cardPrice > maxPrice) {
         show = false;
@@ -169,24 +169,24 @@ function initFilters() {
 
 function initContactForm() {
   const form = document.getElementById('contactForm');
-  
+
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     // Get form values
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-    
+
     // Show success message (demo)
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
-    
+
     submitBtn.textContent = 'Gönderildi ✓';
     submitBtn.style.background = '#00ff88';
     submitBtn.disabled = true;
-    
+
     setTimeout(() => {
       submitBtn.textContent = originalText;
       submitBtn.style.background = '';
@@ -206,10 +206,10 @@ function init3DViewer() {
 
   // Placeholder for model-viewer integration
   // In production, this would load the actual 3D model
-  
+
   let rotation = 0;
   const placeholder = viewer.querySelector('.product-viewer__placeholder');
-  
+
   if (placeholder) {
     // Simple rotation animation for demo
     setInterval(() => {
@@ -225,19 +225,21 @@ function init3DViewer() {
 
 function initARButton() {
   const arButton = document.querySelector('.ar-button');
-  
+  const modelViewer = document.querySelector('model-viewer#viewer-3d');
+
   if (!arButton) return;
 
   arButton.addEventListener('click', () => {
-    // Check if device supports AR
-    const isARSupported = 'xr' in navigator;
-    
-    if (isARSupported) {
-      // Launch AR experience (placeholder)
-      alert('AR deneyimi başlatılıyor... (Demo modunda)');
-    } else {
-      alert('Cihazınız AR\'ı desteklemiyor. Mobil cihazınızdan deneyebilirsiniz.');
+    // Check if model-viewer is present and AR is available
+    if (modelViewer) {
+      if (modelViewer.canActivateAR) {
+        modelViewer.activateAR();
+        return;
+      }
     }
+
+    // Fallback if model-viewer not ready or AR not supported
+    alert('AR deneyimi başlatılıyor... (Cihazınız destekliyorsa kamera açılacaktır)');
   });
 }
 
@@ -247,11 +249,11 @@ function initARButton() {
 
 function initAdminPanel() {
   const productRows = document.querySelectorAll('.admin__table tr[data-product-id]');
-  
+
   productRows.forEach(row => {
     const editBtn = row.querySelector('.admin__action-btn--edit');
     const deleteBtn = row.querySelector('.admin__action-btn--delete');
-    
+
     if (editBtn) {
       editBtn.addEventListener('click', () => {
         const productId = row.dataset.productId;
@@ -259,7 +261,7 @@ function initAdminPanel() {
         console.log(`Edit product: ${productId}`);
       });
     }
-    
+
     if (deleteBtn) {
       deleteBtn.addEventListener('click', () => {
         const productId = row.dataset.productId;
